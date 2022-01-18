@@ -1,5 +1,8 @@
+from http.client import HTTPResponse
+import re
 from django.db import reset_queries
-from django.http import response, HttpResponse
+# from django.http import HTTPResponse
+from django.shortcuts import redirect, render
 from django.views.generic.base import RedirectView
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -8,6 +11,14 @@ from .serializers import DataFieldSerializer
 from .models import DataField
 # from core import serializers
 # Create your views here.
+
+def home(request):
+
+    return render(request, 'core/index.html')
+
+def cab1(request):
+
+    return render(request, 'core/sharecab.html')
 
 @api_view(["GET"])
 def get_all_data(request):
