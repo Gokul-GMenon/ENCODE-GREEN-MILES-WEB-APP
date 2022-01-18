@@ -1,0 +1,17 @@
+.navnav1{
+    box-shadow: 0 5px 10px #efefef;
+    color: lawngreen;
+    }
+
+.ahov{
+    
+    text-transform: uppercase;
+   
+}
+.big-g{
+    font-size: 42px;
+    font-weight: 20px;
+    font-family:'verdana';
+    margin: 20px 0;
+    color: lawngreen;
+}
