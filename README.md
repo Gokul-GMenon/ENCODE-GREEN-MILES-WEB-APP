@@ -10,6 +10,7 @@ There is a need for sustainable urban transporation model which is safe convinie
 # Technologies used
 * Django
 * openrouteservices mapping API
+* geopy
 * Bootstrap CSS
 * Python, HTML, CSS, Javascript
 
