@@ -10,7 +10,8 @@ There is a need for sustainable urban transporation model which is safe convinie
 # Technologies used
 * Django
 * openrouteservices mapping API
-* Python
+* Bootstrap CSS
+* Python, HTML, CSS, Javascript
 
 # Perks:
 * This significantly reduces transport expenses for an individual.
