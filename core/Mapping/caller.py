@@ -1,7 +1,6 @@
 # from geopy.geocoders import Nominatim
 # from openrouteservice import os
 # import nominatim
-API_KEY = '5b3ce3597851110001cf6248cbcaa4997a544a70b03f858958a83086'
 # start = ['Ulloor', 'Pattom', 'Kaniyapuram', 'Vattappara']
 # end = ['Kazhakkoottam', 'Menamkulam', 'Sreekariyam', 'Aakkulam']
 # start = ['Shoranur', 'Pathirippala', 'Kulappully', 'Cheruthuruthi']
@@ -34,8 +33,7 @@ def call(start, end):
         return 1
     routes = list(zip(start, end))
 
-    from Mapping.dataPrep import prep
-    # from Mapping.dataPrep import prep
+    from dataPrep import prep
 
     data = prep(routes)
     # loc = []
@@ -74,7 +72,7 @@ def call(start, end):
     #     res = client.directions(obj)
     #     data.append([obj, res['routes'][0]['segments'][0]['distance'], res['routes'][0]['segments'][0]['duration'], name])
 
-    from Mapping.route_decide import route
+    from route_decide import route
     # print(data)
     final = route(data, 0)
 

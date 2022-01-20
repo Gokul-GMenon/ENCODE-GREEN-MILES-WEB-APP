@@ -36,7 +36,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ahov">
               
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'usp'  pk%}">Profile</a>
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
               </li>
               <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -65,20 +65,22 @@
       <div class="container">
         <div class="row">
            <div class="col-sm-4">
+                
                    <div class="card text-black bg-light mb-3 border-success text-center" style="max-width: 25rem;">
                    <div class="card-header">STEP 1</div>
-                   {% load static %}<img class="card-img-top" src="{% static "core/media/thumb.jpg" %}" alt="Card image cap">
+                   {% load static %}<img class="card-img-top" src="{% static "core/media/prof.png" %}" alt="Card image cap">
                    <div class="card-body">
-                    <h7> For best results please ensure pickup and destination are within 30 KMs of Thampanoor, Thiruvananthapuram</h7>
+                    <!-- <h7> For best results please ensure pickup and destination are within 30 KMs of Thampanoor, Thiruvananthapuram</h7> -->
+                    {% csrf_token %}
                     {% load crispy_forms_tags %}
-                    <h5 class="card-title">Enter Details of Travel</h5>
+                    <h5 class="card-title">Enter your details </h5>
                     <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                     <form action = "" method="POST">
                       {% csrf_token %}
                     <div class ="form-group">  
                       <div class ='input-group date ' id='datetimepicker1'>  
                         
-                        {{form.date|as_crispy_field}}
+                        {{form.name|as_crispy_field}}
                         <!-- <input type ='date' class="form-control" />   -->
                         <span class ="input-group-addon">  
                           <span class ="glyphicon glyphicon-calendar"></span>  
@@ -89,25 +91,21 @@
                       {% load crispy_forms_tags %} -->
                   <!-- <div class ="form-group">  
                     <form action = "" method="POST"> -->
-                      {% csrf_token %}
                 
                     <!-- <div class ='input-group date ' id='datetimepicker1'>        -->
                                 
                       <!-- <input type ='time' class="form-control" />  -->
-                      {{form.time|as_crispy_field}}
+                      <!-- {% csrf_token %} -->
+                      {{form.ph|as_crispy_field}}
                       <span class ="input-group-addon">  
                         <span class ="glyphicon glyphicon-calendar"></span>  
                       </span>  
                     </div>  
                    </div>  
+                  <!-- </form> -->
                    <br>
                     <!-- <input class="form-control me-2" type="search" placeholder="PickUp" aria-label="Search"> -->
-                    {{form.start|as_crispy_field}}
-                    <br>
-                    <!-- <input class="form-control me-2" type="search" placeholder="Destination" aria-label="Search"> -->
-                    {{form.end|as_crispy_field}}
-                    <br>
-                    <button class="btn btn-outline-success  text-center" type="submit" onclick="document.location='{% url 'cab2' pk %}'">Search</button>
+                    <button class="btn btn-outline-success  text-center" type="submit" >Register</button>
                     
                    </div>
                 </div>

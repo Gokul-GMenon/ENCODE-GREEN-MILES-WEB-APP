@@ -1,9 +1,4 @@
-import os
-API_KEY = ''
-with open(os.path.join('API_KEY.txt'), "r") as file:
-    API_KEY = file.readline()
-# API_KEY = '5b3ce3597851110001cf6248cbcaa4997a544a70b03f858958a83086'
-API_KEY = API_KEY[:-1]
+
 from os import stat
 
 
@@ -32,7 +27,7 @@ def timeCal(group):
     locs_start = {'a': group[0][-1][0], 'b': group[1][-1][0], 'c': group[2][-1][0]}
     locs_end = {'a': group[0][-1][1], 'b': group[1][-1][1], 'c': group[2][-1][1]}
     import openrouteservice
-    client = openrouteservice.Client(key= API_KEY)
+    client = openrouteservice.Client(key='5b3ce3597851110001cf62489c813a54852e46cfaba5c882462e815d')
         
 
     # Centroid of the start coordinates
@@ -157,5 +152,5 @@ def timeCal(group):
             update(state, res['routes'][0]['segments'][0]['duration'])
     
             state[end[i+1]] = 0
-    route = [locs_start[start[0]],locs_start[start[1]], locs_start[start[2]], locs_end[end[0]], locs_end[end[1]], locs_end[end[2]], [str(total_time[0]/600), str(total_time[1]), str(total_time[2])]]
+    route = locs_start[start[0]] + ' -> ' + locs_start[start[1]] + ' -> ' + locs_start[start[2]] + ' -> ' + locs_end[end[0]] + ' -> ' + locs_end[end[1]] + ' -> ' + locs_end[end[2]] + '\nTime for each passenger - ' +  str(total_time[0]/600) + ', ' + str(total_time[1]) + ', ' + str(total_time[2])
     return start, end, total_time, route

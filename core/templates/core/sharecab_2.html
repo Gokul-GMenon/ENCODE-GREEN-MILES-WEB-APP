@@ -5,7 +5,8 @@
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<link rel="stylesheet" type="text/css" href="{% static 'core/core/style.css' %}" />
+{% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'core/core/style.css' %}" />
 <style>
   body{
   background: -webkit-linear-gradient(bottom, #0ecc473d, #ffffff);
@@ -16,10 +17,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GREEN MILES</title>
 </head>
-<body>
+<body> 
    <nav class="navbar navbar-expand-lg navbar-light bg-light navnav1" >
         <div class="container-fluid">
-          <a class="navbar-brand" href="index.html" ><img src="./assets/share sustainably (2).png" alt="" width="38" height="35"> GREEN MILES</a>
+          <a class="navbar-brand" href="{% url 'home' %}" >
+            {% load static %}<img src="{% static "core/media/img1.png" %}" alt="" width="38" height="35" /> GREEN MILES
+          </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -27,14 +30,14 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ahov">
               
               <li class="nav-item">
-                <a class="nav-link " aria-current="page" href="sharecab.html">Share A Vehicle</a>
+                <a class="nav-link " aria-current="page" href="{% url 'cab1' pk%}">Share A Vehicle</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="userprofile.html">Profile</a>
+                <a class="nav-link" href="{% url 'usp' pk=1 %}">Profile</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">About</a>
-              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">About</a>
+              </li> -->
               <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Dropdown
@@ -61,15 +64,15 @@
       <br>
       <div class="container">
         <div class="row">
-           <div class="col-sm-4">
-                   <div class="card text-black bg-light mb-3 text-center" style="max-width: 25rem;">
-                   <div class="card-header">STEP 2</div>
+           <div class="col-sm-7">
+                   <div class="card text-black bg-light mb-3 text-center container-fluid" style="min-width: 25rem;">
+                   <div class="card-header">Confirmation</div>
                    <div class="card-body">
-                    <h5 class="card-title">Confirmation</h5>
+                    <h5 class="card-title">These are your travel partners</h5>
                     <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                     <div class ="form-group">  
                       
-                      <table class="table table-hover">
+                      <table class="table table-hover table-borderless container-fluid" style="word-break: break-all;">
                         <thead>
                           <tr>
                             <th scope="col">#</th>
@@ -83,24 +86,24 @@
                         <tbody>
                           <tr>
                             <th scope="row">1</th>
-                            <td>00</td>
-                            <td>01</td>
-                            <td>02</td>
-                            <td>03</td>
+                            <td>{{ name1 }}</td>
+                            <td>{{ time1 }}</td>
+                            <td>{{ start1 }}</td>
+                            <td>{{ end1 }}</td>
                           </tr>
                           <tr>
                             <th scope="row">2</th>
-                            <td>10</td>
-                            <td>11</td>
-                            <td>12</td>
-                            <td>13</td>
+                            <td>{{ name2 }}</td>
+                            <td>{{ time2 }}</td>
+                            <td>{{ start2}}</td>
+                            <td>{{ end2 }}</td>
                           </tr>
                           <tr>
                             <th scope="row">3</th>
-                            <td>20</td>
-                            <td>21</td>
-                            <td>22</td>
-                            <td>23</td>
+                            <td>{{ name3 }}</td>
+                            <td>{{ time3 }}</td>
+                            <td>{{ start3 }}</td>
+                            <td>{{ end3 }}</td>
                           </tr>
                         </tbody>
                       </table>
@@ -110,26 +113,71 @@
                    </div>  
                     
                     <label>Are You Satisfied with this ?</label><br>
-                    <button class="btn btn-outline-success  text-center" type="submit">Yes</button>
+                    <button class="btn btn-outline-success  text-center" onclick="document.location='{% url 'cab3' pk %}'">Yes</button>
                     <br>
-                    <button class="btn btn-outline-danger  text-center" type="submit">No</button>
+                    <button class="btn btn-outline-danger  text-center" onclick="document.location='{% url 'cab2' pk %}'">No</button>
                     <br>
+                    <div class="card-footer"></div>
+
                    </div>
                 </div>
-            </div>   
+              
             <div class="col-sm-4">
-                <!-- <div class="card text-black bg-light mb-3 border-success text-center" style="max-width: 25rem;">
-                <div class="card-header">2</div>
-                
+
+              <div class="card text-black bg-light mb-3 text-center" style="max-width: 25rem;">
+                <div class="card-header"></div>
                 <div class="card-body">
-                 <h5 class="card-title">Success card title</h5>
-                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                 <input class="form-control me-2" type="search" placeholder="PickUp" aria-label="Search">
-                 <br>
-                 <input class="form-control me-2" type="search" placeholder="Destination" aria-label="Search">
-                 <br>
-                 <button class="btn btn-outline-success  text-center" type="submit">Search</button>
-                </div> -->
+                 <h5 class="card-title " >Details of your route is shown below</h5>
+                 <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                 <div class ="form-group">  
+                   
+                   <table class="table table-hover">
+                     <thead>
+                       <tr>
+                         <th scope="col">Stop Number</th>
+                         <th scope="col">Stop Name</th>
+                         
+
+                       </tr>
+                     </thead>
+                     <tbody>
+                       <tr>
+                        <th scope="row">1</th>
+                        <td>{{ start1 }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>{{ start2 }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>{{ start3 }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">4</th>
+                        <td>{{ end1 }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">5</th>
+                        <td>{{ end2 }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">6</th>
+                        <td>{{ end3 }}</td>
+                      </tr>
+                       
+                     </tbody>
+                   </table>
+
+                   </div>  
+                   
+               <br>
+                </div>  
+                <div class="card-footer"></div>
+                
+                </div>
+             </div>
+</div>
              </div>
         </div>
         

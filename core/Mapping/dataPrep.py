@@ -1,8 +1,4 @@
-import os
-API_KEY = ''
-with open(os.path.join('API_KEY.txt'), "r") as file:
-    API_KEY = file.readline()
-API_KEY = API_KEY[:-1]
+
 """
 To append the database with the time data for all the people
 """
@@ -25,7 +21,7 @@ def prep(names):
     from geopy.geocoders import Nominatim
     locator = Nominatim(user_agent = "myapp")
 
-    client = openrouteservice.Client(key=API_KEY)
+    client = openrouteservice.Client(key='5b3ce3597851110001cf62489c813a54852e46cfaba5c882462e815d')
     data = []
     for name in names:
         start, end = name

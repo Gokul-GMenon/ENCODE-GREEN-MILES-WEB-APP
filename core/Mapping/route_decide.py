@@ -1,11 +1,7 @@
 """
 Main function to decide the best possible route
 """
-import os
-API_KEY = ''
-with open(os.path.join('API_KEY.txt'), "r") as file:
-    API_KEY = file.readline()
-API_KEY = API_KEY[:-1]
+
 """
 Function to sort all the residents in ascending order of the travel time
 """
@@ -18,7 +14,7 @@ Function to sort all the residents in ascending order of the travel time
 # from turtle import distance
 import openrouteservice
     
-client = openrouteservice.Client(key= API_KEY)
+client = openrouteservice.Client(key='5b3ce3597851110001cf62489c813a54852e46cfaba5c882462e815d')
 
 
 def sort_time(data):
@@ -69,8 +65,8 @@ def sort(ls):
 
 def checkTime(group):#, cond):
     
-
     from Mapping.timeCalReal import timeCal
+    # from Mapping.timeCalReal import timeCal
 
     start, end, total_time, route = timeCal(group)
     og_time = [0]*3
