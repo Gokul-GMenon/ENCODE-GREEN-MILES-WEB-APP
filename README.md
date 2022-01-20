@@ -1,10 +1,10 @@
 # ENCODE-GREEN-MILES-WEB-APP
 
 Green miles is a web-app developed by the team DYNAMOS (for ENCODE 2021-22) consisting of members:
-RIZVAN M S
-GOKUL G MENON
-HARIKRISHNAN S
-R MUKUND
+* RIZVAN M S
+* GOKUL G MENON
+* HARIKRISHNAN S
+* R MUKUND
 There is a need for sustainable urban transporation model which is safe convinient and efficient. The web-app is a prototype aimed at achieving the same.
 
 # Technologies used
