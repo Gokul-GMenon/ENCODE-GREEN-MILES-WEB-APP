@@ -5,7 +5,7 @@ Green miles is a web-app developed by the team DYNAMOS (for ENCODE 2021-22) cons
 * GOKUL G MENON
 * HARIKRISHNAN S
 * R MUKUND
-There is a need for sustainable urban transporation model which is safe convinient and efficient. The web-app is a prototype aimed at achieving the same.
+* There is a need for sustainable urban transporation model which is safe convinient and efficient. The web-app is a prototype aimed at achieving the same.
 
 # Technologies used
 * Django
